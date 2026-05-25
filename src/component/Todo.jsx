@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Sparkles, Plus, Trash2 } from "lucide-react";
 
 function Todo() {
+
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState(() => {
     const stored = localStorage.getItem("todos");
@@ -89,19 +90,19 @@ function Todo() {
         <div className="h-15 flex justify-between  bg-black text-white">
           <button
             onClick={() => setFilter("all")}
-            className="flex-1 cursor-pointer transition hover:duration-700 hover:ease-in-out"
+            className={`flex-1 cursor-pointer transition hover:duration-700 ${filter === "all" ? "bg-white border-b text-black" : "bg-black text-white"}`}
           >
             All
           </button>
           <button
             onClick={() => setFilter("active")}
-            className="flex-1 cursor-pointer transition hover:duration-700 hover:ease-in-out"
+            className={`flex-1 cursor-pointer transition hover:duration-700 ${filter === "active" ? "bg-white border-b text-black" : "bg-black text-white"}`}
           >
             Active
           </button>
           <button
             onClick={() => setFilter("completed")}
-            className="flex-1 cursor-pointer transition hover:duration-700 hover:ease-in-out"
+            className={`flex-1 cursor-pointer transition hover:duration-700 ${filter === "completed" ? "bg-white border-b text-black" : "bg-black text-white"}`}
           >
             Completed
           </button>
